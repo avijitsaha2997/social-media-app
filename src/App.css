@@ -40,7 +40,7 @@
   align-items: center;
   justify-content: center;
   color: white;
-  border: 1px solid var(--orange);
+  border: none;
   border-radius: 0.5rem;
   background: var(--buttonBg);
   transition: all 300ms ease-out;
