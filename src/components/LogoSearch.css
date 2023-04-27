@@ -5,7 +5,7 @@
 
 .logo {
   width: 40px;
-  height: 40px;
+  height: 50px;
 }
 
 .search {
@@ -27,7 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(106.23deg, #f99827, #f95f35 100%);
+  background: linear-gradient(106.23deg, #27ddf9, #3573f9 100%);
   border-radius: 5px;
   padding: 4px;
   color: white;
