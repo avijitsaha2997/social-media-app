@@ -46,6 +46,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
+  padding-bottom: 30px;
 }
 
 .followStatus > hr {
