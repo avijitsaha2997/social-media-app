@@ -10,7 +10,15 @@ function Post({ data }) {
       <img src={data.img} alt="" />
 
       <div className="postReact">
-        <img src={data.liked ? Heart : NotLike} alt="" />
+        <img
+          className="like"
+          src={
+            data.liked
+              ? "https://cdn.pixabay.com/photo/2012/04/28/18/26/hearts-43887__340.png"
+              : NotLike
+          }
+          alt=""
+        />
         <img src={Comment} alt="" />
         <img src={Share} alt="" />
       </div>
