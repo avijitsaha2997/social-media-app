@@ -13,8 +13,8 @@ function Auth() {
           <h6>Explore the ideas throughout the world</h6>
         </div>
       </div>
-      {/* <SignUp /> */}
-      <LogIn />
+      <SignUp />
+      {/* <LogIn /> */}
     </div>
   );
 }
@@ -43,22 +43,16 @@ function LogIn() {
           />
         </div>
 
-        <button className="button infoButton">Login</button>
-        <div className="loginForm">
+        <div>
           <span style={{ fontSize: "12px" }}>
-            Don't have an account!{" "}
-            <span className="noAccLog-Sign">
-              <b>
-                <u>Sign up</u>
-              </b>
-            </span>
+            Don't have an account Sign up
           </span>
+          <button className="button infoButton">Login</button>
         </div>
       </form>
     </div>
   );
 }
-
 function SignUp() {
   return (
     <div className="a-right">
@@ -85,7 +79,7 @@ function SignUp() {
             type="text"
             className="infoInput"
             name="username"
-            placeholder="Username"
+            placeholder="Usernames"
           />
         </div>
 
@@ -104,19 +98,14 @@ function SignUp() {
           />
         </div>
 
+        <div>
+          <span style={{ fontSize: "12px" }}>
+            Already have an account. Login!
+          </span>
+        </div>
         <button className="button infoButton" type="submit">
           Signup
         </button>
-        <div>
-          <span style={{ fontSize: "12px" }}>
-            Already have an account.{" "}
-            <span className="noAccLog-Sign">
-              <b>
-                <u>Log In</u>
-              </b>
-            </span>
-          </span>
-        </div>
       </form>
     </div>
   );
