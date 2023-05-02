@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Auth.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logIn, signUp } from "../../actions/AuthAction.js";
 function Auth() {
   const initialState = {
@@ -10,6 +10,7 @@ function Auth() {
     password: "",
     confirmpass: "",
   };
+  const loading = useSelector((state) => state.authReducer.loading);
   const [isSignUp, setIsSignUp] = useState(true);
   const [data, setData] = useState(initialState);
   const [confirmPass, setConfirmPass] = useState(true);
@@ -146,9 +147,9 @@ function Auth() {
             <button
               className="button infoButton"
               type="submit"
-              // disabled={loading}
+              disabled={loading}
             >
-              {isSignUp ? "SignUp" : "Login"}
+              {loading ? "Loading..." : isSignUp ? "SignUp" : "Login"}
             </button>
           </div>
         </form>
