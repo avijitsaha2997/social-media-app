@@ -72,7 +72,7 @@
 .infoButton {
   width: 6rem;
   height: 2rem;
-  align-self: flex-end;
+  align-self: center;
 }
 
 .authForm {
@@ -85,4 +85,9 @@
   width: 100%;
   align-items: center;
   justify-content: center;
+}
+
+.button-level {
+  display: flex;
+  flex-direction: column;
 }
