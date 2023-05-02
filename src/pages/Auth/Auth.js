@@ -55,7 +55,7 @@ function Auth() {
         </div>
       </div>
 
-      {/*right form side testing purpose*/}
+      {/*right form side*/}
 
       <div className="a-right">
         <form className="infoForm authForm" onSubmit={handleSubmit}>
