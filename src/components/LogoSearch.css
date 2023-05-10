@@ -4,8 +4,10 @@
 }
 
 .logo {
-  width: 40px;
-  height: 50px;
+  width: 60px;
+  height: 65px;
+  margin-top: -16px;
+  margin-left: -20px;
 }
 
 .search {
@@ -15,6 +17,7 @@
   background-color: var(--inputColor);
   border-radius: 10px;
   padding: 5px;
+  margin-left: -5px;
 }
 
 .search > input {

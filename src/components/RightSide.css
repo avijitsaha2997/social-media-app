@@ -10,6 +10,11 @@
   justify-content: space-between;
 }
 
+.loader {
+  border-radius: 10px;
+  opacity: 0.7;
+}
+
 .navIcons > img {
   width: 1.5rem;
   height: 1.5rem;

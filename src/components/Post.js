@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Post.css";
 import Comment from "../img/comment.png";
 import Share from "../img/share.png";
 import NotLike from "../img/notlike.png";
 import { useSelector } from "react-redux";
+import { likePost } from "../api/PostRequests";
 
 function Post({ data }) {
   const { user } = useSelector((state) => state.authReducer.authData);
+  const [liked, setLiked] = useState(data.likes.includes(user._id));
+  const [likes, setLikes] = useState(data.likes.length);
+
+  const handleLike = () => {
+    likePost(data._id, user._id);
+    setLiked((prev) => !prev);
+    liked ? setLikes((prev) => prev - 1) : setLikes((prev) => prev + 1);
+  };
   return (
     <div className="post">
       <img
@@ -17,15 +26,17 @@ function Post({ data }) {
       <div className="postReact">
         <img
           className="like"
+          style={{ cursor: "pointer" }}
+          onClick={handleLike}
           src={
-            data.liked
-              ? "https://cdn.pixabay.com/photo/2012/04/28/18/26/hearts-43887__340.png"
+            liked
+              ? "https://cdn3.emoji.gg/emojis/3717_light_blue_heartpulse.png"
               : NotLike
           }
           alt=""
         />
-        <img src={Comment} alt="" />
-        <img src={Share} alt="" />
+        <img src={Comment} alt="" style={{ cursor: "pointer" }} />
+        <img src={Share} alt="" style={{ cursor: "pointer" }} />
       </div>
 
       <span style={{ color: "var(--gray)", fontSize: "12px" }}>

@@ -6,7 +6,7 @@ function LogoSearch() {
     <div className="logoSearch">
       <img
         className="logo"
-        src="https://cdn.pixabay.com/photo/2020/03/10/18/41/blue-4919864_960_720.png"
+        src="https://media.tenor.com/PRcQePKtLYYAAAAi/blue-blueflame.gif"
         alt=""
       />
       <div className="search">

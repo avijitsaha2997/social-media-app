@@ -17,10 +17,13 @@
 .a-left {
   gap: 2rem;
 }
-
+/* .authLogo {
+  width: 50px;
+} */
 .a-left > img {
-  width: 4rem;
-  height: 5rem;
+  width: 7rem;
+  height: 8rem;
+  margin-bottom: 50px;
 }
 
 .webname > h1 {
