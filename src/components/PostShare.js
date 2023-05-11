@@ -15,6 +15,7 @@ function PostShare() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.authReducer.authData);
   const loading = useSelector((state) => state.postReducer.uploading);
+  const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
 
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -81,7 +82,11 @@ function PostShare() {
   return (
     <div className="postShare">
       <img
-        src="https://cdn-icons-png.flaticon.com/512/1057/1057231.png"
+        src={
+          user.profilePicture
+            ? serverPublic + user.profilePicture
+            : "https://cdn-icons-png.flaticon.com/512/1057/1057231.png "
+        }
         alt=""
       />
       <div>

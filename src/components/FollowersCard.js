@@ -9,7 +9,7 @@ function FollowersCard() {
 
       {Followers.map((follower, id) => {
         return (
-          <div className="follower">
+          <div className="follower" key={Math.random()}>
             <div>
               <img src={follower.img} alt="" className="followerImage" />
               <div className="name">

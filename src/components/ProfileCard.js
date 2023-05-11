@@ -1,42 +1,61 @@
 import React from "react";
 import "./ProfileCard.css";
-function ProfileCard() {
-  const ProfilePage = true;
+import { useSelector } from "react-redux";
+import cover from "../img/cover.jpg";
+import { Link } from "react-router-dom";
+
+function ProfileCard({ location }) {
+  const { user } = useSelector((state) => state.authReducer.authData);
+  const posts = useSelector((state) => state.postReducer.posts);
+  const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
+  const ProfilePage = false;
   return (
     <div className="profileCard">
       <div className="profileImages">
         <img
-          src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/721c896d-b5ec-42fd-ba05-037c4b0df524/d4pzrbs-84be116e-05c9-4ca8-babf-a6a53ccfd544.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzcyMWM4OTZkLWI1ZWMtNDJmZC1iYTA1LTAzN2M0YjBkZjUyNFwvZDRwenJicy04NGJlMTE2ZS0wNWM5LTRjYTgtYmFiZi1hNmE1M2NjZmQ1NDQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.aHFQL0F40oh7VZgjG2KAEtyGJogVuGV1zlDFX3ICUN8"
-          alt=""
+          src={
+            user.coverPicture
+              ? serverPublic + user.coverPicture
+              : "https://static.vecteezy.com/system/resources/previews/004/697/688/original/curve-light-blue-background-abstract-free-vector.jpg"
+          }
+          alt="CoverImage"
         />
         <img
-          src="https://cdn-icons-png.flaticon.com/512/1057/1057231.png"
-          alt=""
+          src={
+            user.profilePicture
+              ? serverPublic + user.profilePicture
+              : "https://cdn-icons-png.flaticon.com/512/1057/1057231.png "
+          }
+          alt="ProfileImage"
         />
       </div>
-
       <div className="profileName">
-        <span>Avijit Saha</span>
-        <span>Software Enginner</span>
+        <span>
+          {user.firstname} {user.lastname}
+        </span>
+        <span>{user.worksAt ? user.worksAt : "Write about yourself"}</span>
+        <span>{user.worksAt ? `${user.country}, ${user.livesIn}` : ""}</span>
       </div>
-
       <div className="followStatus">
         <hr />
         <div>
           <div className="follow">
-            <span>6,890</span>
-            <span>Followings</span>
+            <span>{user.following.length}</span>
+            <span>Following</span>
           </div>
           <div className="vl"></div>
           <div className="follow">
-            <span>1</span>
+            <span>{user.followers.length}</span>
             <span>Followers</span>
           </div>
-          {ProfilePage && (
+
+          {location === "profilePage" && (
             <>
               <div className="vl"></div>
               <div className="follow">
-                <span>3</span>
+                <span>
+                  {posts.filter((post) => post.userId === user._id).length}
+                </span>
                 <span>Posts</span>
               </div>
             </>
@@ -44,7 +63,18 @@ function ProfileCard() {
         </div>
         <hr />
       </div>
-      {ProfilePage ? "" : <span>My Profile</span>}
+      {location === "profilePage" ? (
+        ""
+      ) : (
+        <span>
+          <Link
+            to={`/profile/${user._id}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            My Profile
+          </Link>
+        </span>
+      )}
     </div>
   );
 }
