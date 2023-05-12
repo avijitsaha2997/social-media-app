@@ -8,6 +8,7 @@ function User({ person }) {
   const dispatch = useDispatch();
 
   const [following, setFollowing] = useState();
+
   const handleFollow = () => {
     following
       ? dispatch(unfollowUser(person._id, user))
