@@ -19,7 +19,9 @@ function RightSide() {
         </Link>
         <SettingsOutlinedIcon />
         <IosShareOutlinedIcon />
-        <ForumOutlinedIcon />
+        <Link to="../chat">
+          <ForumOutlinedIcon />
+        </Link>
       </div>
 
       <img
